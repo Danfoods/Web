@@ -10,7 +10,6 @@
     a { text-decoration: none; color: inherit; }
     img { max-width: 100%; display: block; }
 
-    /* Header line 1 */
     .top-header {
       display: flex;
       justify-content: space-between;
@@ -25,11 +24,8 @@
       border-radius: 5px;
       border: none;
     }
-    .top-header .hotline {
-      font-weight: bold;
-    }
+    .top-header .hotline { font-weight: bold; }
 
-    /* Header line 2: menu */
     .nav {
       display: flex;
       justify-content: center;
@@ -40,15 +36,12 @@
     }
     .nav a:hover { color: #2E8B57; }
 
-    /* Line 3: banner layout */
     .main-banner {
       display: flex;
       gap: 20px;
       padding: 20px 40px;
     }
-    .main-banner .left {
-      flex: 3;
-    }
+    .main-banner .left { flex: 3; }
     .main-banner .right {
       flex: 1;
       display: flex;
@@ -62,13 +55,11 @@
       background: #f0f0f0;
       padding: 20px 40px;
     }
-    .features-row div {
-      flex: 1;
-      padding: 10px;
-    }
+    .features-row div { flex: 1; padding: 10px; }
 
     .section-banner {
       margin: 40px 0;
+      text-align: center;
     }
 
     .product-grid {
@@ -144,69 +135,94 @@
     <div>📦 Đa dạng sản phẩm</div>
   </div>
 
-  <!-- Section: Heo -->
+  <!-- Các section sản phẩm sử dụng lại cấu trúc giống nhau -->
+  <!-- THỊT HEO -->
   <div class="section-banner">
     <img src="https://via.placeholder.com/1200x250?text=Banner+Thịt+Heo" alt="Thịt heo">
   </div>
   <div class="product-grid">
-    <!-- 10 sản phẩm thịt heo -->
-    " + Array(10).fill(`<div class="product">
-      <img src="https://via.placeholder.com/200x150" alt="Sản phẩm">
-      <h4>Thịt Heo XYZ</h4>
-      <p>Giá: Liên hệ</p>
-    </div>`).join('') + "
+    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Thịt Heo XYZ</h4><p>Giá: Liên hệ</p></div>
+    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Thịt Heo ABC</h4><p>Giá: Liên hệ</p></div>
+    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Sườn Non</h4><p>Giá: Liên hệ</p></div>
+    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Ba Rọi</h4><p>Giá: Liên hệ</p></div>
+    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Chân Giò</h4><p>Giá: Liên hệ</p></div>
+    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Móng Giò</h4><p>Giá: Liên hệ</p></div>
+    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Lõi Vai</h4><p>Giá: Liên hệ</p></div>
+    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Thịt Xay</h4><p>Giá: Liên hệ</p></div>
+    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Heo Cốt Lết</h4><p>Giá: Liên hệ</p></div>
+    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Thịt Vai</h4><p>Giá: Liên hệ</p></div>
   </div>
   <div class="see-more"><a href="#">Xem thêm thịt heo</a></div>
 
-  <!-- Section: Gà -->
+  <!-- THỊT GÀ -->
   <div class="section-banner">
     <img src="https://via.placeholder.com/1200x250?text=Banner+Thịt+Gà" alt="Thịt gà">
   </div>
   <div class="product-grid">
-    " + Array(10).fill(`<div class="product">
-      <img src="https://via.placeholder.com/200x150" alt="Sản phẩm">
-      <h4>Thịt Gà XYZ</h4>
-      <p>Giá: Liên hệ</p>
-    </div>`).join('') + "
+    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Đùi Gà Nhập Khẩu</h4><p>Giá: Liên hệ</p></div>
+    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Cánh Gà</h4><p>Giá: Liên hệ</p></div>
+    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Gà Nguyên Con</h4><p>Giá: Liên hệ</p></div>
+    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Ức Gà</h4><p>Giá: Liên hệ</p></div>
+    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Lòng Gà</h4><p>Giá: Liên hệ</p></div>
+    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Mề Gà</h4><p>Giá: Liên hệ</p></div>
+    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Cổ Gà</h4><p>Giá: Liên hệ</p></div>
+    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Chân Gà Rút Xương</h4><p>Giá: Liên hệ</p></div>
+    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Gà Phi Lê</h4><p>Giá: Liên hệ</p></div>
+    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Gà Chặt Khúc</h4><p>Giá: Liên hệ</p></div>
   </div>
   <div class="see-more"><a href="#">Xem thêm thịt gà</a></div>
 
-  <!-- Section: Bò - Trâu -->
+  <!-- THỊT BÒ & TRÂU -->
   <div class="section-banner">
     <img src="https://via.placeholder.com/1200x250?text=Banner+Thịt+Bò+Trâu" alt="Thịt bò trâu">
   </div>
   <div class="product-grid">
-    " + Array(10).fill(`<div class="product">
-      <img src="https://via.placeholder.com/200x150" alt="Sản phẩm">
-      <h4>Thịt Bò/Trâu XYZ</h4>
-      <p>Giá: Liên hệ</p>
-    </div>`).join('') + "
+    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Gầu Bò</h4><p>Giá: Liên hệ</p></div>
+    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Ba Chỉ Bò</h4><p>Giá: Liên hệ</p></div>
+    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Nạc Vai Bò</h4><p>Giá: Liên hệ</p></div>
+    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Gân Bò</h4><p>Giá: Liên hệ</p></div>
+    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Lõi Vai Bò</h4><p>Giá: Liên hệ</p></div>
+    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Thăn Ngoại</h4><p>Giá: Liên hệ</p></div>
+    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Thăn Nội</h4><p>Giá: Liên hệ</p></div>
+    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Bò Xay</h4><p>Giá: Liên hệ</p></div>
+    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Thịt Trâu Ấn</h4><p>Giá: Liên hệ</p></div>
+    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Lõi Vai Trâu</h4><p>Giá: Liên hệ</p></div>
   </div>
   <div class="see-more"><a href="#">Xem thêm thịt bò - trâu</a></div>
 
-  <!-- Section: Cá - Hải sản -->
+  <!-- HẢI SẢN -->
   <div class="section-banner">
     <img src="https://via.placeholder.com/1200x250?text=Banner+Cá+Hải+Sản" alt="Cá hải sản">
   </div>
   <div class="product-grid">
-    " + Array(10).fill(`<div class="product">
-      <img src="https://via.placeholder.com/200x150" alt="Sản phẩm">
-      <h4>Cá/Hải sản XYZ</h4>
-      <p>Giá: Liên hệ</p>
-    </div>`).join('') + "
+    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Cá Basa Phi Lê</h4><p>Giá: Liên hệ</p></div>
+    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Cá Hồi</h4><p>Giá: Liên hệ</p></div>
+    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Cá Nục</h4><p>Giá: Liên hệ</p></div>
+    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Mực Ống</h4><p>Giá: Liên hệ</p></div>
+    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Tôm Sú</h4><p>Giá: Liên hệ</p></div>
+    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Cá Thu Cắt Khúc</h4><p>Giá: Liên hệ</p></div>
+    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Cá Trích</h4><p>Giá: Liên hệ</p></div>
+    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Ghẹ Gỡ Thịt</h4><p>Giá: Liên hệ</p></div>
+    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Sò Điệp</h4><p>Giá: Liên hệ</p></div>
+    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Hải Sản Tổng Hợp</h4><p>Giá: Liên hệ</p></div>
   </div>
   <div class="see-more"><a href="#">Xem thêm hải sản</a></div>
 
-  <!-- Section: Ăn vặt -->
+  <!-- ĂN VẶT - XIÊN QUE -->
   <div class="section-banner">
     <img src="https://via.placeholder.com/1200x250?text=Banner+Ăn+Vặt+Xiên+Que" alt="Ăn vặt">
   </div>
   <div class="product-grid">
-    " + Array(10).fill(`<div class="product">
-      <img src="https://via.placeholder.com/200x150" alt="Sản phẩm">
-      <h4>Ăn vặt XYZ</h4>
-      <p>Giá: Liên hệ</p>
-    </div>`).join('') + "
+    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Chả Cá</h4><p>Giá: Liên hệ</p></div>
+    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Xúc Xích Đức</h4><p>Giá: Liên hệ</p></div>
+    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Thanh Cua</h4><p>Giá: Liên hệ</p></div>
+    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Hồ Lô Nướng</h4><p>Giá: Liên hệ</p></div>
+    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Chả Bò Cuộn Lá Lốt</h4><p>Giá: Liên hệ</p></div>
+    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Bò Viên</h4><p>Giá: Liên hệ</p></div>
+    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Cá Viên</h4><p>Giá: Liên hệ</p></div>
+    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Gà Xiên</h4><p>Giá: Liên hệ</p></div>
+    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Đậu Hũ Cá</h4><p>Giá: Liên hệ</p></div>
+    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Xiên Que Tổng Hợp</h4><p>Giá: Liên hệ</p></div>
   </div>
   <div class="see-more"><a href="#">Xem thêm ăn vặt</a></div>
 
