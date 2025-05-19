@@ -5,202 +5,218 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Đan Foods - Thực phẩm đông lạnh nhập khẩu</title>
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #fff;
-      color: #333;
-    }
-    /* Header */
-    .navbar {
-      background-color: #2E8B57;
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: Arial, sans-serif; background: #fff; color: #333; }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    /* Header line 1 */
+    .top-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 10px 40px;
+      background-color: #2E8B57;
       color: white;
     }
-    .navbar h1 {
-      margin: 0;
-      font-size: 1.5em;
-    }
-    .navbar nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 20px;
-    }
-    .hero {
-      background: url('https://via.placeholder.com/1600x500') center/cover no-repeat;
-      padding: 100px 20px;
-      text-align: center;
-      color: white;
-      background-color: rgba(0,0,0,0.5);
-    }
-    .hero h2 {
-      font-size: 2.5em;
-      margin: 0 0 10px;
-    }
-    .hero p {
-      font-size: 1.2em;
-    }
-    .hero .btn {
-      margin-top: 20px;
-      padding: 10px 20px;
-      background: #FF7F50;
-      color: white;
-      text-decoration: none;
+    .top-header input {
+      padding: 8px;
+      width: 40%;
       border-radius: 5px;
-      display: inline-block;
+      border: none;
     }
-    /* Section Layout */
-    section {
-      padding: 60px 20px;
-      max-width: 1200px;
-      margin: auto;
+    .top-header .hotline {
+      font-weight: bold;
     }
-    h2 {
+
+    /* Header line 2: menu */
+    .nav {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      background-color: #f4f4f4;
+      padding: 10px 0;
+      font-weight: bold;
+    }
+    .nav a:hover { color: #2E8B57; }
+
+    /* Line 3: banner layout */
+    .main-banner {
+      display: flex;
+      gap: 20px;
+      padding: 20px 40px;
+    }
+    .main-banner .left {
+      flex: 3;
+    }
+    .main-banner .right {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .features-row {
+      display: flex;
+      justify-content: space-around;
       text-align: center;
-      color: #2E8B57;
-      margin-bottom: 40px;
+      background: #f0f0f0;
+      padding: 20px 40px;
     }
-    .intro, .why-us, .gallery, .contact {
-      text-align: center;
+    .features-row div {
+      flex: 1;
+      padding: 10px;
     }
+
+    .section-banner {
+      margin: 40px 0;
+    }
+
     .product-grid {
       display: flex;
       flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 0 40px;
       gap: 20px;
-      justify-content: center;
     }
     .product {
-      width: 250px;
-      background: #f8f8f8;
+      flex: 0 0 calc(20% - 20px);
+      background: #f9f9f9;
       border-radius: 10px;
       overflow: hidden;
+      text-align: center;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
-    .product img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
+    .product h4 { margin: 10px 0 5px; }
+    .product p { margin: 0 0 10px; color: #FF7F50; font-weight: bold; }
+
+    .see-more {
+      text-align: center;
+      margin: 20px 0 40px;
     }
-    .product h3 {
-      padding: 15px;
-      margin: 0;
-      font-size: 1.1em;
+    .see-more a {
+      padding: 10px 20px;
+      background: #2E8B57;
+      color: white;
+      border-radius: 5px;
     }
-    .features {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-    }
-    .feature-box {
-      flex: 1 1 250px;
-      background: #eaf6f0;
-      padding: 20px;
-      border-radius: 10px;
-    }
-    .gallery img {
-      width: 100%;
-      max-width: 300px;
-      margin: 10px;
-      border-radius: 10px;
-    }
-    .contact p {
-      line-height: 1.8;
-    }
+
     footer {
       background: #2E8B57;
       color: white;
       text-align: center;
-      padding: 20px;
+      padding: 30px 20px;
     }
-    @media (max-width: 768px) {
-      .navbar { flex-direction: column; align-items: flex-start; }
-      .features, .product-grid { flex-direction: column; align-items: center; }
+    footer img {
+      height: 50px;
+      margin-bottom: 10px;
     }
   </style>
 </head>
 <body>
-  <div class="navbar">
-    <h1>Đan Foods</h1>
-    <nav>
-      <a href="#products">Sản phẩm</a>
-      <a href="#about">Giới thiệu</a>
-      <a href="#why">Lý do chọn</a>
-      <a href="#contact">Liên hệ</a>
-    </nav>
+  <div class="top-header">
+    <img src="https://via.placeholder.com/100x50?text=Logo" alt="Đan Foods">
+    <input type="text" placeholder="Tìm sản phẩm...">
+    <div class="hotline">Hotline: 0908 352 254</div>
   </div>
 
-  <div class="hero">
-    <h2>Thực phẩm đông lạnh nhập khẩu chất lượng</h2>
-    <p>Chuyên cung cấp sỉ cho bếp ăn, nhà hàng, công ty</p>
-    <a href="#products" class="btn">Xem sản phẩm</a>
+  <div class="nav">
+    <a href="#">Trang chủ</a>
+    <a href="#">Sản phẩm</a>
+    <a href="#">Tin tức</a>
+    <a href="#">Liên hệ</a>
   </div>
 
-  <section id="about" class="intro">
-    <h2>Giới thiệu về Đan Foods</h2>
-    <p>Chúng tôi chuyên nhập khẩu và phân phối thịt đông lạnh từ các nước như Brazil, Nga, Tây Ban Nha, Anh Quốc... phục vụ bếp ăn công nghiệp, suất ăn công ty, quán ăn và nhà hàng trên toàn quốc.</p>
-  </section>
-
-  <section id="products">
-    <h2>Danh mục sản phẩm</h2>
-    <div class="product-grid">
-      <div class="product">
-        <img src="https://via.placeholder.com/300x200" alt="Thịt heo">
-        <h3>Thịt heo nhập khẩu</h3>
-      </div>
-      <div class="product">
-        <img src="https://via.placeholder.com/300x200" alt="Thịt bò">
-        <h3>Thịt bò nhập khẩu</h3>
-      </div>
-      <div class="product">
-        <img src="https://via.placeholder.com/300x200" alt="Gà, cá, hải sản">
-        <h3>Gà, cá, hải sản đông lạnh</h3>
-      </div>
+  <div class="main-banner">
+    <div class="left">
+      <img src="https://via.placeholder.com/900x400?text=Slide+Banner" alt="Slide Banner">
     </div>
-  </section>
-
-  <section id="why">
-    <h2>Tại sao chọn Đan Foods?</h2>
-    <div class="features">
-      <div class="feature-box">
-        <h3>Hàng hóa ổn định</h3>
-        <p>Đầy đủ chứng từ, kiểm dịch rõ ràng</p>
-      </div>
-      <div class="feature-box">
-        <h3>Giá tốt linh hoạt</h3>
-        <p>Phù hợp mọi quy mô bếp ăn, công ty</p>
-      </div>
-      <div class="feature-box">
-        <h3>Đóng gói theo yêu cầu</h3>
-        <p>Hút chân không, cắt khúc, đóng khay</p>
-      </div>
-      <div class="feature-box">
-        <h3>Giao hàng tận nơi</h3>
-        <p>Hỗ trợ nhanh chóng tại TP.HCM và tỉnh</p>
-      </div>
+    <div class="right">
+      <img src="https://via.placeholder.com/300x120?text=Banner+1" alt="Banner 1">
+      <img src="https://via.placeholder.com/300x120?text=Banner+2" alt="Banner 2">
+      <img src="https://via.placeholder.com/300x120?text=Banner+3" alt="Banner 3">
     </div>
-  </section>
+  </div>
 
-  <section class="gallery">
-    <h2>Hình ảnh hoạt động</h2>
-    <img src="https://via.placeholder.com/300x200" alt="Kho hàng">
-    <img src="https://via.placeholder.com/300x200" alt="Đóng hàng">
-    <img src="https://via.placeholder.com/300x200" alt="Giao hàng">
-  </section>
+  <div class="features-row">
+    <div>🚚 Giao hàng nhanh</div>
+    <div>💲 Giá cả cạnh tranh</div>
+    <div>🛡️ An toàn vệ sinh</div>
+    <div>📦 Đa dạng sản phẩm</div>
+  </div>
 
-  <section id="contact" class="contact">
-    <h2>Liên hệ</h2>
-    <p><strong>Địa chỉ kho:</strong> 4/5A Liên Khu 5-6, P. Bình Hưng Hòa B, Q. Bình Tân, TP.HCM</p>
-    <p><strong>Hotline:</strong> 0908 352 254 – 0906 628 259</p>
-    <p><strong>Email:</strong> danfoods.vn@gmail.com</p>
-    <p><strong>Fanpage / Zalo OA:</strong> Đan Foods</p>
-  </section>
+  <!-- Section: Heo -->
+  <div class="section-banner">
+    <img src="https://via.placeholder.com/1200x250?text=Banner+Thịt+Heo" alt="Thịt heo">
+  </div>
+  <div class="product-grid">
+    <!-- 10 sản phẩm thịt heo -->
+    " + Array(10).fill(`<div class="product">
+      <img src="https://via.placeholder.com/200x150" alt="Sản phẩm">
+      <h4>Thịt Heo XYZ</h4>
+      <p>Giá: Liên hệ</p>
+    </div>`).join('') + "
+  </div>
+  <div class="see-more"><a href="#">Xem thêm thịt heo</a></div>
+
+  <!-- Section: Gà -->
+  <div class="section-banner">
+    <img src="https://via.placeholder.com/1200x250?text=Banner+Thịt+Gà" alt="Thịt gà">
+  </div>
+  <div class="product-grid">
+    " + Array(10).fill(`<div class="product">
+      <img src="https://via.placeholder.com/200x150" alt="Sản phẩm">
+      <h4>Thịt Gà XYZ</h4>
+      <p>Giá: Liên hệ</p>
+    </div>`).join('') + "
+  </div>
+  <div class="see-more"><a href="#">Xem thêm thịt gà</a></div>
+
+  <!-- Section: Bò - Trâu -->
+  <div class="section-banner">
+    <img src="https://via.placeholder.com/1200x250?text=Banner+Thịt+Bò+Trâu" alt="Thịt bò trâu">
+  </div>
+  <div class="product-grid">
+    " + Array(10).fill(`<div class="product">
+      <img src="https://via.placeholder.com/200x150" alt="Sản phẩm">
+      <h4>Thịt Bò/Trâu XYZ</h4>
+      <p>Giá: Liên hệ</p>
+    </div>`).join('') + "
+  </div>
+  <div class="see-more"><a href="#">Xem thêm thịt bò - trâu</a></div>
+
+  <!-- Section: Cá - Hải sản -->
+  <div class="section-banner">
+    <img src="https://via.placeholder.com/1200x250?text=Banner+Cá+Hải+Sản" alt="Cá hải sản">
+  </div>
+  <div class="product-grid">
+    " + Array(10).fill(`<div class="product">
+      <img src="https://via.placeholder.com/200x150" alt="Sản phẩm">
+      <h4>Cá/Hải sản XYZ</h4>
+      <p>Giá: Liên hệ</p>
+    </div>`).join('') + "
+  </div>
+  <div class="see-more"><a href="#">Xem thêm hải sản</a></div>
+
+  <!-- Section: Ăn vặt -->
+  <div class="section-banner">
+    <img src="https://via.placeholder.com/1200x250?text=Banner+Ăn+Vặt+Xiên+Que" alt="Ăn vặt">
+  </div>
+  <div class="product-grid">
+    " + Array(10).fill(`<div class="product">
+      <img src="https://via.placeholder.com/200x150" alt="Sản phẩm">
+      <h4>Ăn vặt XYZ</h4>
+      <p>Giá: Liên hệ</p>
+    </div>`).join('') + "
+  </div>
+  <div class="see-more"><a href="#">Xem thêm ăn vặt</a></div>
 
   <footer>
-    &copy; 2025 Đan Foods. All rights reserved.
+    <img src="https://via.placeholder.com/150x50?text=Đan+Foods" alt="Logo">
+    <p>CÔNG TY TNHH TM DV SX ĐAN FOODS</p>
+    <p>Địa chỉ: 4/5A Liên Khu 5-6, Bình Hưng Hòa B, Bình Tân, TP.HCM</p>
+    <p>Hotline: 0908 352 254 – 0906 628 259</p>
+    <p>Email: danfoods.vn@gmail.com</p>
+    <p>Facebook | Zalo | TikTok</p>
   </footer>
 </body>
 </html>
