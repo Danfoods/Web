@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Liên hệ - Đan Foods</title>
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; background: #fff; color: #333; }
+    a { text-decoration: none; color: inherit; }
+    .top-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 40px;
+      background-color: #2E8B57;
+      color: white;
+    }
+    .top-header input {
+      padding: 8px;
+      width: 40%;
+      border-radius: 5px;
+      border: none;
+    }
+    .top-header .hotline { font-weight: bold; }
+
+    .nav {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      background-color: #f4f4f4;
+      padding: 10px 0;
+      font-weight: bold;
+    }
+    .nav a:hover { color: #2E8B57; }
+
+    section {
+      padding: 60px 40px;
+      background: #f9f9f9;
+    }
+    h2 {
+      text-align: center;
+      color: #2E8B57;
+      margin-bottom: 40px;
+    }
+    .contact-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .contact-container div {
+      flex: 1;
+      min-width: 300px;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    input, textarea {
+      padding: 10px;
+      width: 100%;
+    }
+    button {
+      background: #2E8B57;
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    iframe {
+      width: 100%;
+      height: 300px;
+      border: none;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="top-header">
+    <img src="https://via.placeholder.com/100x50?text=Logo" alt="Đan Foods">
+    <input type="text" placeholder="Tìm sản phẩm...">
+    <div class="hotline">Hotline: 0908 352 254</div>
+  </div>
+
+  <div class="nav">
+    <a href="index.html">Trang chủ</a>
+    <a href="#">Sản phẩm</a>
+    <a href="#">Tin tức</a>
+    <a href="lien-he.html">Liên hệ</a>
+  </div>
+
+  <section>
+    <h2>Liên hệ với Đan Foods</h2>
+    <div class="contact-container">
+      <div>
+        <h3>Thông tin liên hệ</h3>
+        <p><strong>Địa chỉ:</strong> 4/5A Liên Khu 5-6, P. Bình Hưng Hòa B, Q. Bình Tân, TP.HCM</p>
+        <p><strong>Hotline:</strong> 0908 352 254 – 0906 628 259</p>
+        <p><strong>Email:</strong> danfoods.vn@gmail.com</p>
+        <p><strong>Facebook:</strong> fb.com/danfoods</p>
+        <p><strong>Zalo:</strong> Zalo OA Đan Foods</p>
+        <p><strong>Thời gian làm việc:</strong> 7h30 – 17h00 (T2–T7)</p>
+      </div>
+      <div>
+        <h3>Gửi yêu cầu tư vấn</h3>
+        <form>
+          <input type="text" placeholder="Họ và tên" required />
+          <input type="tel" placeholder="Số điện thoại" required />
+          <input type="email" placeholder="Email (nếu có)" />
+          <textarea rows="4" placeholder="Nội dung cần tư vấn..."></textarea>
+          <button type="submit">Gửi yêu cầu</button>
+        </form>
+      </div>
+    </div>
+
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.8785940597285!2d106.5935424!3d10.8184396!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752bddb672ca01%3A0x6d17d43f7b0b805d!2zNC81QSDEkOG6oWNoIExpw6puIEtodSA1LTYsIELDrG5oIEjGsG5nIEjDsmEgQiwgQsOsbmggVMOibiwgVMOHoSBQaOG7pyBN4bqtdCBIaMOgbmcsIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1716200000000!5m2!1svi!2s"
+      allowfullscreen=""
+      loading="lazy"
+    ></iframe>
+  </section>
+</body>
+</html>
