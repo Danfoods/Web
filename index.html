@@ -1,239 +1,608 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Đan Foods - Thực phẩm đông lạnh nhập khẩu</title>
-  <style>
-    * { box-sizing: border-box; }
-    body { margin: 0; font-family: Arial, sans-serif; background: #fff; color: #333; }
-    a { text-decoration: none; color: inherit; }
-    img { max-width: 100%; display: block; }
-
-    .top-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 40px;
-      background-color: #2E8B57;
-      color: white;
-    }
-    .top-header input {
-      padding: 8px;
-      width: 40%;
-      border-radius: 5px;
-      border: none;
-    }
-    .top-header .hotline { font-weight: bold; }
-
-    .nav {
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      background-color: #f4f4f4;
-      padding: 10px 0;
-      font-weight: bold;
-    }
-    .nav a:hover { color: #2E8B57; }
-
-    .main-banner {
-      display: flex;
-      gap: 20px;
-      padding: 20px 40px;
-    }
-    .main-banner .left { flex: 3; }
-    .main-banner .right {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-    .features-row {
-      display: flex;
-      justify-content: space-around;
-      text-align: center;
-      background: #f0f0f0;
-      padding: 20px 40px;
-    }
-    .features-row div { flex: 1; padding: 10px; }
-
-    .section-banner {
-      margin: 40px 0;
-      text-align: center;
-    }
-
-    .product-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      padding: 0 40px;
-      gap: 20px;
-    }
-    .product {
-      flex: 0 0 calc(20% - 20px);
-      background: #f9f9f9;
-      border-radius: 10px;
-      overflow: hidden;
-      text-align: center;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
-    .product h4 { margin: 10px 0 5px; }
-    .product p { margin: 0 0 10px; color: #FF7F50; font-weight: bold; }
-
-    .see-more {
-      text-align: center;
-      margin: 20px 0 40px;
-    }
-    .see-more a {
-      padding: 10px 20px;
-      background: #2E8B57;
-      color: white;
-      border-radius: 5px;
-    }
-
-    footer {
-      background: #2E8B57;
-      color: white;
-      text-align: center;
-      padding: 30px 20px;
-    }
-    footer img {
-      height: 50px;
-      margin-bottom: 10px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đan Foods - Kho thực phẩm đông lạnh nhập khẩu</title>
+    <style>
+        /* Reset CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        
+        .container {
+            width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Header */
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            background-color: #fff;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .logo {
+            width: 150px;
+        }
+        
+        .search-box {
+            flex-grow: 1;
+            margin: 0 20px;
+        }
+        
+        .search-box input {
+            width: 80%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        .hotline {
+            font-weight: bold;
+            color: #d70014;
+            font-size: 18px;
+        }
+        
+        /* Menu */
+        .main-menu {
+            background-color: #d70014;
+        }
+        
+        .main-menu ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        .main-menu ul li {
+            position: relative;
+        }
+        
+        .main-menu ul li a {
+            display: block;
+            padding: 15px 20px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .main-menu ul li:hover {
+            background-color: #b00010;
+        }
+        
+        /* Dropdown menu */
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: #fff;
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        
+        .dropdown-menu a {
+            color: #333 !important;
+            padding: 12px 16px;
+        }
+        
+        .dropdown-menu a:hover {
+            background-color: #f1f1f1;
+        }
+        
+        .main-menu ul li:hover .dropdown-menu {
+            display: block;
+        }
+        
+        /* Banner section */
+        .banner-section {
+            display: flex;
+            margin: 20px 0;
+        }
+        
+        .main-banner {
+            width: 70%;
+            margin-right: 10px;
+        }
+        
+        .main-banner img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        
+        .sub-banners {
+            width: 30%;
+        }
+        
+        .sub-banner {
+            margin-bottom: 10px;
+        }
+        
+        .sub-banner img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        
+        /* Reasons section */
+        .reasons {
+            display: flex;
+            justify-content: space-between;
+            margin: 30px 0;
+            text-align: center;
+        }
+        
+        .reason-item {
+            width: 23%;
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .reason-item img {
+            width: 60px;
+            margin-bottom: 15px;
+        }
+        
+        /* Featured products */
+        .section-title {
+            font-size: 24px;
+            margin: 30px 0 20px;
+            color: #d70014;
+            text-align: center;
+        }
+        
+        .featured-products {
+            display: flex;
+            overflow-x: auto;
+            padding: 10px 0;
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .product {
+            min-width: 250px;
+            margin: 0 10px;
+            text-align: center;
+            padding: 15px;
+            border: 1px solid #eee;
+            border-radius: 5px;
+        }
+        
+        .product img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+        
+        .product-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .product-price {
+            color: #d70014;
+            font-weight: bold;
+        }
+        
+        /* Product categories */
+        .product-category {
+            margin: 40px 0;
+        }
+        
+        .category-banner {
+            margin-bottom: 20px;
+        }
+        
+        .category-banner img {
+            width: 100%;
+            border-radius: 5px;
+        }
+        
+        .category-products {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        
+        .view-more {
+            text-align: center;
+        }
+        
+        .view-more a {
+            display: inline-block;
+            padding: 10px 30px;
+            background: #d70014;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            padding: 40px 0 20px;
+            margin-top: 50px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .footer-logo {
+            width: 25%;
+        }
+        
+        .footer-logo img {
+            width: 150px;
+            margin-bottom: 15px;
+        }
+        
+        .footer-info {
+            width: 40%;
+        }
+        
+        .footer-info h3 {
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        
+        .footer-social {
+            width: 25%;
+        }
+        
+        .footer-social h3 {
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        
+        .social-icons a {
+            color: white;
+            font-size: 24px;
+            margin-right: 15px;
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #555;
+        }
+    </style>
 </head>
 <body>
-  <div class="top-header">
-    <img src="https://via.placeholder.com/100x50?text=Logo" alt="Đan Foods">
-    <input type="text" placeholder="Tìm sản phẩm...">
-    <div class="hotline">Hotline: 0908 352 254</div>
-  </div>
-
-  <div class="nav">
-    <a href="index.html">Trang chủ</a>
-    <a href="#">Về chúng tôi</a>
-    <a href="#">Sản phẩm</a>
-    <a href="#">Tin tức</a>
-    <a href="lien-he.html">Liên hệ</a>
-  </div>
-
-  <div class="main-banner">
-    <div class="left">
-      <img src="https://via.placeholder.com/900x400?text=Slide+Banner" alt="Slide Banner">
-    </div>
-    <div class="right">
-      <img src="https://via.placeholder.com/300x120?text=Banner+1" alt="Banner 1">
-      <img src="https://via.placeholder.com/300x120?text=Banner+2" alt="Banner 2">
-      <img src="https://via.placeholder.com/300x120?text=Banner+3" alt="Banner 3">
-    </div>
-  </div>
-
-  <div class="features-row">
-    <div>🚚 Giao hàng nhanh</div>
-    <div>💲 Giá cả cạnh tranh</div>
-    <div>🛡️ An toàn vệ sinh</div>
-    <div>📦 Đa dạng sản phẩm</div>
-  </div>
-
-  <!-- Các section sản phẩm sử dụng lại cấu trúc giống nhau -->
-  <!-- THỊT HEO -->
-  <div class="section-banner">
-    <img src="https://via.placeholder.com/1200x250?text=Banner+Thịt+Heo" alt="Thịt heo">
-  </div>
-  <div class="product-grid">
-    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Thịt Heo XYZ</h4><p>Giá: Liên hệ</p></div>
-    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Thịt Heo ABC</h4><p>Giá: Liên hệ</p></div>
-    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Sườn Non</h4><p>Giá: Liên hệ</p></div>
-    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Ba Rọi</h4><p>Giá: Liên hệ</p></div>
-    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Chân Giò</h4><p>Giá: Liên hệ</p></div>
-    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Móng Giò</h4><p>Giá: Liên hệ</p></div>
-    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Lõi Vai</h4><p>Giá: Liên hệ</p></div>
-    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Thịt Xay</h4><p>Giá: Liên hệ</p></div>
-    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Heo Cốt Lết</h4><p>Giá: Liên hệ</p></div>
-    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Thịt Vai</h4><p>Giá: Liên hệ</p></div>
-  </div>
-  <div class="see-more"><a href="#">Xem thêm thịt heo</a></div>
-
-  <!-- THỊT GÀ -->
-  <div class="section-banner">
-    <img src="https://via.placeholder.com/1200x250?text=Banner+Thịt+Gà" alt="Thịt gà">
-  </div>
-  <div class="product-grid">
-    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Đùi Gà Nhập Khẩu</h4><p>Giá: Liên hệ</p></div>
-    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Cánh Gà</h4><p>Giá: Liên hệ</p></div>
-    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Gà Nguyên Con</h4><p>Giá: Liên hệ</p></div>
-    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Ức Gà</h4><p>Giá: Liên hệ</p></div>
-    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Lòng Gà</h4><p>Giá: Liên hệ</p></div>
-    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Mề Gà</h4><p>Giá: Liên hệ</p></div>
-    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Cổ Gà</h4><p>Giá: Liên hệ</p></div>
-    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Chân Gà Rút Xương</h4><p>Giá: Liên hệ</p></div>
-    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Gà Phi Lê</h4><p>Giá: Liên hệ</p></div>
-    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Gà Chặt Khúc</h4><p>Giá: Liên hệ</p></div>
-  </div>
-  <div class="see-more"><a href="#">Xem thêm thịt gà</a></div>
-
-  <!-- THỊT BÒ & TRÂU -->
-  <div class="section-banner">
-    <img src="https://via.placeholder.com/1200x250?text=Banner+Thịt+Bò+Trâu" alt="Thịt bò trâu">
-  </div>
-  <div class="product-grid">
-    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Gầu Bò</h4><p>Giá: Liên hệ</p></div>
-    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Ba Chỉ Bò</h4><p>Giá: Liên hệ</p></div>
-    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Nạc Vai Bò</h4><p>Giá: Liên hệ</p></div>
-    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Gân Bò</h4><p>Giá: Liên hệ</p></div>
-    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Lõi Vai Bò</h4><p>Giá: Liên hệ</p></div>
-    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Thăn Ngoại</h4><p>Giá: Liên hệ</p></div>
-    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Thăn Nội</h4><p>Giá: Liên hệ</p></div>
-    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Bò Xay</h4><p>Giá: Liên hệ</p></div>
-    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Thịt Trâu Ấn</h4><p>Giá: Liên hệ</p></div>
-    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Lõi Vai Trâu</h4><p>Giá: Liên hệ</p></div>
-  </div>
-  <div class="see-more"><a href="#">Xem thêm thịt bò - trâu</a></div>
-
-  <!-- HẢI SẢN -->
-  <div class="section-banner">
-    <img src="https://via.placeholder.com/1200x250?text=Banner+Cá+Hải+Sản" alt="Cá hải sản">
-  </div>
-  <div class="product-grid">
-    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Cá Basa Phi Lê</h4><p>Giá: Liên hệ</p></div>
-    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Cá Hồi</h4><p>Giá: Liên hệ</p></div>
-    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Cá Nục</h4><p>Giá: Liên hệ</p></div>
-    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Mực Ống</h4><p>Giá: Liên hệ</p></div>
-    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Tôm Sú</h4><p>Giá: Liên hệ</p></div>
-    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Cá Thu Cắt Khúc</h4><p>Giá: Liên hệ</p></div>
-    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Cá Trích</h4><p>Giá: Liên hệ</p></div>
-    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Ghẹ Gỡ Thịt</h4><p>Giá: Liên hệ</p></div>
-    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Sò Điệp</h4><p>Giá: Liên hệ</p></div>
-    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Hải Sản Tổng Hợp</h4><p>Giá: Liên hệ</p></div>
-  </div>
-  <div class="see-more"><a href="#">Xem thêm hải sản</a></div>
-
-  <!-- ĂN VẶT - XIÊN QUE -->
-  <div class="section-banner">
-    <img src="https://via.placeholder.com/1200x250?text=Banner+Ăn+Vặt+Xiên+Que" alt="Ăn vặt">
-  </div>
-  <div class="product-grid">
-    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Chả Cá</h4><p>Giá: Liên hệ</p></div>
-    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Xúc Xích Đức</h4><p>Giá: Liên hệ</p></div>
-    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Thanh Cua</h4><p>Giá: Liên hệ</p></div>
-    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Hồ Lô Nướng</h4><p>Giá: Liên hệ</p></div>
-    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Chả Bò Cuộn Lá Lốt</h4><p>Giá: Liên hệ</p></div>
-    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Bò Viên</h4><p>Giá: Liên hệ</p></div>
-    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Cá Viên</h4><p>Giá: Liên hệ</p></div>
-    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Gà Xiên</h4><p>Giá: Liên hệ</p></div>
-    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Đậu Hũ Cá</h4><p>Giá: Liên hệ</p></div>
-    <div class="product"><img src="https://via.placeholder.com/200x150" alt="Sản phẩm"><h4>Xiên Que Tổng Hợp</h4><p>Giá: Liên hệ</p></div>
-  </div>
-  <div class="see-more"><a href="#">Xem thêm ăn vặt</a></div>
-
-  <footer>
-    <img src="https://via.placeholder.com/150x50?text=Đan+Foods" alt="Logo">
-    <p>CÔNG TY TNHH TM DV SX ĐAN FOODS</p>
-    <p>Địa chỉ: 4/5A Liên Khu 5-6, Bình Hưng Hòa B, Bình Tân, TP.HCM</p>
-    <p>Hotline: 0908 352 254 – 0906 628 259</p>
-    <p>Email: danfoods.vn@gmail.com</p>
-    <p>Facebook | Zalo | TikTok</p>
-  </footer>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <div class="logo">
+                    <img src="https://via.placeholder.com/150x50?text=Đan+Foods" alt="Đan Foods Logo">
+                </div>
+                <div class="search-box">
+                    <input type="text" placeholder="Tìm kiếm sản phẩm...">
+                </div>
+                <div class="hotline">Hotline: 0908 352 254</div>
+            </div>
+        </div>
+        
+        <div class="main-menu">
+            <div class="container">
+                <ul>
+                    <li><a href="#">Trang chủ</a></li>
+                    <li>
+                        <a href="#">Sản phẩm</a>
+                        <div class="dropdown-menu">
+                            <a href="#">Thịt heo đông lạnh</a>
+                            <a href="#">Thịt bò đông lạnh</a>
+                            <a href="#">Thịt trâu đông lạnh</a>
+                            <a href="#">Thịt gà đông lạnh</a>
+                            <a href="#">Cá - Thuỷ Hải Sản</a>
+                            <a href="#">Ăn vặt - Xiên que</a>
+                        </div>
+                    </li>
+                    <li><a href="#">Tin tức</a></li>
+                    <li><a href="#">Liên hệ</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Banner Section -->
+        <section class="banner-section">
+            <div class="main-banner">
+                <img src="https://via.placeholder.com/830x350?text=Main+Banner" alt="Main Banner">
+            </div>
+            <div class="sub-banners">
+                <div class="sub-banner">
+                    <img src="https://via.placeholder.com/350x110?text=Banner+1" alt="Banner 1">
+                </div>
+                <div class="sub-banner">
+                    <img src="https://via.placeholder.com/350x110?text=Banner+2" alt="Banner 2">
+                </div>
+                <div class="sub-banner">
+                    <img src="https://via.placeholder.com/350x110?text=Banner+3" alt="Banner 3">
+                </div>
+            </div>
+        </section>
+        
+        <!-- Reasons to choose -->
+        <section class="reasons">
+            <div class="reason-item">
+                <img src="https://via.placeholder.com/60x60?text=✓" alt="Quality">
+                <h3>Chất lượng cao</h3>
+                <p>Sản phẩm nhập khẩu đảm bảo chất lượng, an toàn vệ sinh thực phẩm</p>
+            </div>
+            <div class="reason-item">
+                <img src="https://via.placeholder.com/60x60?text=💰" alt="Price">
+                <h3>Giá thành tốt</h3>
+                <p>Giá cả cạnh tranh nhất thị trường với chất lượng vượt trội</p>
+            </div>
+            <div class="reason-item">
+                <img src="https://via.placeholder.com/60x60?text=🚚" alt="Delivery">
+                <h3>Giao hàng nhanh</h3>
+                <p>Giao hàng tận nơi trong vòng 2h tại TP.HCM</p>
+            </div>
+            <div class="reason-item">
+                <img src="https://via.placeholder.com/60x60?text=🎁" alt="Gift">
+                <h3>Ưu đãi hấp dẫn</h3>
+                <p>Nhiều chương trình khuyến mãi cho khách hàng thân thiết</p>
+            </div>
+        </section>
+        
+        <!-- Featured Products -->
+        <h2 class="section-title">SẢN PHẨM NỔI BẬT</h2>
+        <section class="featured-products">
+            <div class="product">
+                <img src="https://via.placeholder.com/200x150?text=Sản+phẩm+1" alt="Sản phẩm 1">
+                <div class="product-name">Thịt heo nhập khẩu</div>
+                <div class="product-price">120.000đ/kg</div>
+            </div>
+            <div class="product">
+                <img src="https://via.placeholder.com/200x150?text=Sản+phẩm+2" alt="Sản phẩm 2">
+                <div class="product-name">Thịt bò Mỹ</div>
+                <div class="product-price">350.000đ/kg</div>
+            </div>
+            <div class="product">
+                <img src="https://via.placeholder.com/200x150?text=Sản+phẩm+3" alt="Sản phẩm 3">
+                <div class="product-name">Cá hồi Nauy</div>
+                <div class="product-price">450.000đ/kg</div>
+            </div>
+            <div class="product">
+                <img src="https://via.placeholder.com/200x150?text=Sản+phẩm+4" alt="Sản phẩm 4">
+                <div class="product-name">Gà đông lạnh</div>
+                <div class="product-price">90.000đ/kg</div>
+            </div>
+            <div class="product">
+                <img src="https://via.placeholder.com/200x150?text=Sản+phẩm+5" alt="Sản phẩm 5">
+                <div class="product-name">Tôm sú</div>
+                <div class="product-price">280.000đ/kg</div>
+            </div>
+            <div class="product">
+                <img src="https://via.placeholder.com/200x150?text=Sản+phẩm+6" alt="Sản phẩm 6">
+                <div class="product-name">Xiên que</div>
+                <div class="product-price">15.000đ/xiên</div>
+            </div>
+            <div class="product">
+                <img src="https://via.placeholder.com/200x150?text=Sản+phẩm+7" alt="Sản phẩm 7">
+                <div class="product-name">Thịt trâu</div>
+                <div class="product-price">220.000đ/kg</div>
+            </div>
+            <div class="product">
+                <img src="https://via.placeholder.com/200x150?text=Sản+phẩm+8" alt="Sản phẩm 8">
+                <div class="product-name">Mực ống</div>
+                <div class="product-price">320.000đ/kg</div>
+            </div>
+        </section>
+        
+        <!-- Product Categories -->
+        <!-- Thịt heo -->
+        <section class="product-category">
+            <div class="category-banner">
+                <img src="https://via.placeholder.com/1200x200?text=Thịt+heo+đông+lạnh" alt="Thịt heo đông lạnh">
+            </div>
+            <div class="category-products">
+                <div class="product">
+                    <img src="https://via.placeholder.com/200x150?text=Thịt+heo+1" alt="Thịt heo 1">
+                    <div class="product-name">Thịt heo ba chỉ</div>
+                    <div class="product-price">120.000đ/kg</div>
+                </div>
+                <div class="product">
+                    <img src="https://via.placeholder.com/200x150?text=Thịt+heo+2" alt="Thịt heo 2">
+                    <div class="product-name">Thịt heo nạc</div>
+                    <div class="product-price">110.000đ/kg</div>
+                </div>
+                <div class="product">
+                    <img src="https://via.placeholder.com/200x150?text=Thịt+heo+3" alt="Thịt heo 3">
+                    <div class="product-name">Sườn heo</div>
+                    <div class="product-price">150.000đ/kg</div>
+                </div>
+                <div class="product">
+                    <img src="https://via.placeholder.com/200x150?text=Thịt+heo+4" alt="Thịt heo 4">
+                    <div class="product-name">Chân giò heo</div>
+                    <div class="product-price">100.000đ/kg</div>
+                </div>
+            </div>
+            <div class="view-more">
+                <a href="#">Xem thêm</a>
+            </div>
+        </section>
+        
+        <!-- Thịt gà -->
+        <section class="product-category">
+            <div class="category-banner">
+                <img src="https://via.placeholder.com/1200x200?text=Thịt+gà+đông+lạnh" alt="Thịt gà đông lạnh">
+            </div>
+            <div class="category-products">
+                <div class="product">
+                    <img src="https://via.placeholder.com/200x150?text=Thịt+gà+1" alt="Thịt gà 1">
+                    <div class="product-name">Gà nguyên con</div>
+                    <div class="product-price">90.000đ/kg</div>
+                </div>
+                <div class="product">
+                    <img src="https://via.placeholder.com/200x150?text=Thịt+gà+2" alt="Thịt gà 2">
+                    <div class="product-name">Đùi gà</div>
+                    <div class="product-price">110.000đ/kg</div>
+                </div>
+                <div class="product">
+                    <img src="https://via.placeholder.com/200x150?text=Thịt+gà+3" alt="Thịt gà 3">
+                    <div class="product-name">Cánh gà</div>
+                    <div class="product-price">95.000đ/kg</div>
+                </div>
+                <div class="product">
+                    <img src="https://via.placeholder.com/200x150?text=Thịt+gà+4" alt="Thịt gà 4">
+                    <div class="product-name">Ức gà</div>
+                    <div class="product-price">120.000đ/kg</div>
+                </div>
+            </div>
+            <div class="view-more">
+                <a href="#">Xem thêm</a>
+            </div>
+        </section>
+        
+        <!-- Thịt bò/trâu -->
+        <section class="product-category">
+            <div class="category-banner">
+                <img src="https://via.placeholder.com/1200x200?text=Thịt+bò+trâu+đông+lạnh" alt="Thịt bò trâu đông lạnh">
+            </div>
+            <div class="category-products">
+                <div class="product">
+                    <img src="https://via.placeholder.com/200x150?text=Thịt+bò+1" alt="Thịt bò 1">
+                    <div class="product-name">Thịt bò Mỹ</div>
+                    <div class="product-price">350.000đ/kg</div>
+                </div>
+                <div class="product">
+                    <img src="https://via.placeholder.com/200x150?text=Thịt+bò+2" alt="Thịt bò 2">
+                    <div class="product-name">Thịt bò Úc</div>
+                    <div class="product-price">320.000đ/kg</div>
+                </div>
+                <div class="product">
+                    <img src="https://via.placeholder.com/200x150?text=Thịt+trâu+1" alt="Thịt trâu 1">
+                    <div class="product-name">Thịt trâu gác bếp</div>
+                    <div class="product-price">250.000đ/kg</div>
+                </div>
+                <div class="product">
+                    <img src="https://via.placeholder.com/200x150?text=Thịt+trâu+2" alt="Thịt trâu 2">
+                    <div class="product-name">Thịt trâu tươi</div>
+                    <div class="product-price">220.000đ/kg</div>
+                </div>
+            </div>
+            <div class="view-more">
+                <a href="#">Xem thêm</a>
+            </div>
+        </section>
+        
+        <!-- Hải sản -->
+        <section class="product-category">
+            <div class="category-banner">
+                <img src="https://via.placeholder.com/1200x200?text=Hải+sản+đông+lạnh" alt="Hải sản đông lạnh">
+            </div>
+            <div class="category-products">
+                <div class="product">
+                    <img src="https://via.placeholder.com/200x150?text=Hải+sản+1" alt="Hải sản 1">
+                    <div class="product-name">Cá hồi Nauy</div>
+                    <div class="product-price">450.000đ/kg</div>
+                </div>
+                <div class="product">
+                    <img src="https://via.placeholder.com/200x150?text=Hải+sản+2" alt="Hải sản 2">
+                    <div class="product-name">Tôm sú</div>
+                    <div class="product-price">280.000đ/kg</div>
+                </div>
+                <div class="product">
+                    <img src="https://via.placeholder.com/200x150?text=Hải+sản+3" alt="Hải sản 3">
+                    <div class="product-name">Mực ống</div>
+                    <div class="product-price">320.000đ/kg</div>
+                </div>
+                <div class="product">
+                    <img src="https://via.placeholder.com/200x150?text=Hải+sản+4" alt="Hải sản 4">
+                    <div class="product-name">Bạch tuộc</div>
+                    <div class="product-price">380.000đ/kg</div>
+                </div>
+            </div>
+            <div class="view-more">
+                <a href="#">Xem thêm</a>
+            </div>
+        </section>
+        
+        <!-- Ăn vặt -->
+        <section class="product-category">
+            <div class="category-banner">
+                <img src="https://via.placeholder.com/1200x200?text=Ăn+vặt+đông+lạnh" alt="Ăn vặt đông lạnh">
+            </div>
+            <div class="category-products">
+                <div class="product">
+                    <img src="https://via.placeholder.com/200x150?text=Ăn+vặt+1" alt="Ăn vặt 1">
+                    <div class="product-name">Xiên que</div>
+                    <div class="product-price">15.000đ/xiên</div>
+                </div>
+                <div class="product">
+                    <img src="https://via.placeholder.com/200x150?text=Ăn+vặt+2" alt="Ăn vặt 2">
+                    <div class="product-name">Chả giò</div>
+                    <div class="product-price">120.000đ/kg</div>
+                </div>
+                <div class="product">
+                    <img src="https://via.placeholder.com/200x150?text=Ăn+vặt+3" alt="Ăn vặt 3">
+                    <div class="product-name">Xúc xích</div>
+                    <div class="product-price">95.000đ/kg</div>
+                </div>
+                <div class="product">
+                    <img src="https://via.placeholder.com/200x150?text=Ăn+vặt+4" alt="Ăn vặt 4">
+                    <div class="product-name">Nem chua</div>
+                    <div class="product-price">110.000đ/kg</div>
+                </div>
+            </div>
+            <div class="view-more">
+                <a href="#">Xem thêm</a>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="https://via.placeholder.com/150x50?text=Đan+Foods" alt="Đan Foods Logo">
+                    <p>Kho thực phẩm đông lạnh nhập khẩu chất lượng cao</p>
+                </div>
+                <div class="footer-info">
+                    <h3>THÔNG TIN CÔNG TY</h3>
+                    <p><strong>CÔNG TY TNHH TM DV SX ĐAN FOODS</strong></p>
+                    <p>4/5A Liên khu 5-6, Bình Hưng Hoà B, Bình Tân, TP.HCM</p>
+                    <p>Hotline: 0908 352 254 - 0906 628 259</p>
+                    <p>Email: info@danfoods.vn</p>
+                </div>
+                <div class="footer-social">
+                    <h3>KẾT NỐI VỚI CHÚNG TÔI</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f">f</i></a>
+                        <a href="#"><i class="fab fa-youtube">y</i></a>
+                        <a href="#"><i class="fab fa-zalo">z</i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>© 2023 Đan Foods. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
