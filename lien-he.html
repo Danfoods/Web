@@ -1,125 +1,555 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Liên hệ - Đan Foods</title>
-  <style>
-    body { margin: 0; font-family: Arial, sans-serif; background: #fff; color: #333; }
-    a { text-decoration: none; color: inherit; }
-    .top-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 40px;
-      background-color: #2E8B57;
-      color: white;
-    }
-    .top-header input {
-      padding: 8px;
-      width: 40%;
-      border-radius: 5px;
-      border: none;
-    }
-    .top-header .hotline { font-weight: bold; }
-
-    .nav {
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      background-color: #f4f4f4;
-      padding: 10px 0;
-      font-weight: bold;
-    }
-    .nav a:hover { color: #2E8B57; }
-
-    section {
-      padding: 60px 40px;
-      background: #f9f9f9;
-    }
-    h2 {
-      text-align: center;
-      color: #2E8B57;
-      margin-bottom: 40px;
-    }
-    .contact-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 40px;
-      max-width: 1000px;
-      margin: auto;
-    }
-    .contact-container div {
-      flex: 1;
-      min-width: 300px;
-    }
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
-    input, textarea {
-      padding: 10px;
-      width: 100%;
-    }
-    button {
-      background: #2E8B57;
-      color: white;
-      border: none;
-      padding: 10px;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    iframe {
-      width: 100%;
-      height: 300px;
-      border: none;
-      margin-top: 20px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liên hệ - Đan Foods - Kho thực phẩm đông lạnh nhập khẩu</title>
+    <style>
+        /* Reset CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        /* Biến màu sắc */
+        :root {
+            --primary-color: #194d0b; /* Xanh lá đậm */
+            --secondary-color: #f9fad2; /* Màu be */
+            --accent-color: #d32f2f; /* Đỏ nhấn */
+            --text-color: #333;
+            --light-text: #555;
+            --white: #fff;
+            --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+        
+        .logo {
+            color: var(--primary-color);
+            font-size: 28px;
+            font-weight: bold;
+        }
+        
+        .logo span {
+            color: var(--accent-color);
+        }
+        
+        .hotline {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        
+        .hotline i {
+            color: var(--accent-color);
+            font-size: 20px;
+        }
+        
+        .search-bar {
+            display: flex;
+            width: 300px;
+        }
+        
+        .search-bar input {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px 0 0 4px;
+            outline: none;
+        }
+        
+        .search-bar button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0 15px;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+        }
+        
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: center;
+            padding: 15px 0;
+            background-color: var(--primary-color);
+            position: relative;
+        }
+        
+        nav a {
+            margin: 0 20px;
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 1px;
+            position: relative;
+        }
+        
+        nav a:hover {
+            opacity: 0.9;
+        }
+        
+        nav a.active {
+            font-weight: 600;
+            text-decoration: underline;
+        }
+        
+        /* Dropdown Menu */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: var(--white);
+            min-width: 200px;
+            box-shadow: var(--shadow);
+            z-index: 1;
+            top: 100%;
+            left: 0;
+        }
+        
+        .dropdown-content a {
+            color: var(--text-color);
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-transform: none;
+            font-size: 14px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .dropdown-content a:hover {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        /* Main Content */
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 5%;
+        }
+        
+        .section-title {
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            font-size: 28px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .section-title:after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+        
+        /* Contact Info & Map Row */
+        .contact-map-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .contact-info {
+            background-color: var(--secondary-color);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+        
+        .contact-icon {
+            color: var(--primary-color);
+            font-size: 20px;
+            margin-right: 15px;
+            margin-top: 3px;
+        }
+        
+        .contact-details h3 {
+            color: var(--primary-color);
+            margin-bottom: 5px;
+            font-size: 18px;
+        }
+        
+        .contact-details p, 
+        .contact-details a {
+            color: var(--light-text);
+            text-decoration: none;
+            line-height: 1.5;
+        }
+        
+        .contact-details a:hover {
+            color: var(--accent-color);
+            text-decoration: underline;
+        }
+        
+        .business-hours {
+            margin-top: 30px;
+        }
+        
+        /* Google Map */
+        .map-wrapper {
+            height: 100%;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        
+        .map-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        /* Contact Form */
+        .contact-form {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--text-color);
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            background-color: var(--secondary-color);
+            border: none;
+        }
+        
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .submit-btn:hover {
+            background-color: #0e3a04;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 30px 5% 20px;
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 25px;
+        }
+        
+        .footer-links a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .footer-links a:hover {
+            color: var(--white);
+            text-decoration: underline;
+        }
+        
+        .contact-info-footer {
+            margin-bottom: 20px;
+        }
+        
+        .contact-info-footer p {
+            margin-bottom: 8px;
+        }
+        
+        .copyright {
+            padding-top: 20px;
+            border-top: 1px solid rgba(249, 250, 210, 0.3);
+            color: var(--secondary-color);
+            font-size: 14px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .contact-map-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .map-wrapper {
+                height: 350px;
+            }
+            
+            .top-bar {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .logo-container {
+                width: 100%;
+                justify-content: space-between;
+            }
+            
+            .search-bar {
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav {
+                flex-wrap: wrap;
+                padding: 10px 0;
+            }
+            
+            nav a {
+                margin: 0 10px;
+                font-size: 13px;
+            }
+            
+            .logo-container {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            
+            .main-container {
+                padding: 30px 5%;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .footer-links {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .contact-info, 
+            .contact-form {
+                padding: 20px;
+            }
+            
+            .section-title {
+                font-size: 24px;
+            }
+        }
+    </style>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-  <div class="top-header">
-    <img src="https://via.placeholder.com/100x50?text=Logo" alt="Đan Foods">
-    <input type="text" placeholder="Tìm sản phẩm...">
-    <div class="hotline">Hotline: 0908 352 254</div>
-  </div>
-
-  <div class="nav">
-    <a href="index.html">Trang chủ</a>
-    <a href="#">Sản phẩm</a>
-    <a href="#">Tin tức</a>
-    <a href="lien-he.html">Liên hệ</a>
-  </div>
-
-  <section>
-    <h2>Liên hệ với Đan Foods</h2>
-    <div class="contact-container">
-      <div>
-        <h3>Thông tin liên hệ</h3>
-        <p><strong>Địa chỉ:</strong> 4/5A Liên Khu 5-6, P. Bình Hưng Hòa B, Q. Bình Tân, TP.HCM</p>
-        <p><strong>Hotline:</strong> 0908 352 254 – 0906 628 259</p>
-        <p><strong>Email:</strong> sales@đanfood.com </p>
-        <p><strong>Facebook:</strong> <a href="https://www.facebook.com/thucphamdonglanhnhapkhaudanfoods" target="_blank">Đan Foods - kho thực phẩm đông lạnh </a></p>
-        <p><strong>Zalo:</strong> 0908 352 254 </p>
-        <p><strong>Thời gian làm việc:</strong> 8h00 – 18h00 (T2–CN)</p>
-      </div>
-      <div>
-        <h3>Gửi yêu cầu tư vấn</h3>
-        <form>
-          <input type="text" placeholder="Họ và tên" required />
-          <input type="tel" placeholder="Số điện thoại" required />
-          <input type="email" placeholder="Email (nếu có)" />
-          <textarea rows="4" placeholder="Nội dung cần tư vấn..."></textarea>
-          <button type="submit">Gửi yêu cầu</button>
-        </form>
-      </div>
-    </div>
-
-  <iframe
-  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.8785940597285!2d106.5935424!3d10.8184396!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752bddb672ca01%3A0x6d17d43f7b0b805d!2zNC81QSDEkOG6oWNoIExpw6puIEtodSA1LTYsIELDrG5oIEjGsG5nIEjDsmEgQiwgQsOsbmggVMOibiwgVMOHoSBQaOG7pyBN4bqtdCBIaMOgbmcsIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1716200000000!5m2!1svi!2s"
-  width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy">
-</iframe>
-  </section>
+    <!-- Header -->
+    <header>
+        <div class="top-bar">
+            <div class="logo-container">
+                <div class="logo">ĐAN <span>FOODS</span></div>
+                <div class="hotline">
+                    <i class="fas fa-phone-alt"></i>
+                    <span>0908 352 254</span>
+                </div>
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Tìm kiếm sản phẩm...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+        <nav>
+            <a href="index.html">Trang chủ</a>
+            <div class="dropdown">
+                <a href="#">Sản phẩm <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="#">Thịt heo đông lạnh</a>
+                    <a href="#">Thịt bò đông lạnh</a>
+                    <a href="#">Thịt trâu đông lạnh (bò ấn)</a>
+                    <a href="#">Cá - Hải sản đông lạnh</a>
+                    <a href="#">Ăn vặt - Xiên que</a>
+                </div>
+            </div>
+            <a href="about.html">Giới thiệu</a>
+            <a href="news.html">Tin tức</a>
+            <a href="contact.html" class="active">Liên hệ</a>
+        </nav>
+    </header>
+    
+    <!-- Main Content -->
+    <main class="main-container">
+        <h2 class="section-title">LIÊN HỆ VỚI CHÚNG TÔI</h2>
+        
+        <!-- Contact Info & Google Map Row -->
+        <div class="contact-map-row">
+            <div class="contact-info">
+                <h3 class="section-title">THÔNG TIN LIÊN HỆ</h3>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Địa chỉ</h3>
+                        <p>123 Nguyễn Văn Linh, Phường Tân Thuận Đông, Quận 7, TP.HCM</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Điện thoại</h3>
+                        <p><a href="tel:0908352254">0908 352 254</a></p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Email</h3>
+                        <p><a href="mailto:info@danfoods.vn">info@danfoods.vn</a></p>
+                    </div>
+                </div>
+                
+                <div class="business-hours">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Giờ làm việc</h3>
+                            <p>Thứ 2 - Thứ 7: 8:00 - 17:00</p>
+                            <p>Chủ nhật: 8:00 - 12:00</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="map-wrapper">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.630242256392!2d106.72627631526067!3d10.76273389233067!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f16ad86371b%3A0x949d258c9506b826!2zMTIzIE5ndXnhu4VuIFbEg24gTGluaCwgVMOibiBUaHXhuq1uIMSQw7RuZywgUXXhuq1uIDcsIFRow6BuaCBwaOG7kSBI4buTIENow60gTWluaCwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1620000000000!5m2!1svi!2s" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+        
+        <!-- Contact Form -->
+        <div class="contact-form">
+            <h3 class="section-title">GỬI YÊU CẦU TƯ VẤN</h3>
+            <form action="#" method="POST">
+                <div class="form-group">
+                    <label for="name">Họ và tên *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Số điện thoại *</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email">
+                </div>
+                
+                <div class="form-group">
+                    <label for="subject">Chủ đề</label>
+                    <select id="subject" name="subject">
+                        <option value="product">Tư vấn sản phẩm</option>
+                        <option value="price">Báo giá sỉ</option>
+                        <option value="partner">Hợp tác đối tác</option>
+                        <option value="other">Khác</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Nội dung *</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">GỬI YÊU CẦU</button>
+            </form>
+        </div>
+    </main>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-links">
+            <a href="index.html">Trang chủ</a>
+            <a href="#">Sản phẩm</a>
+            <a href="about.html">Giới thiệu</a>
+            <a href="news.html">Tin tức</a>
+            <a href="contact.html">Liên hệ</a>
+        </div>
+        <div class="contact-info-footer">
+            <p><i class="fas fa-phone-alt"></i> 0908 352 254 | <i class="fas fa-envelope"></i> info@danfoods.vn</p>
+            <p><i class="fas fa-map-marker-alt"></i> 123 Nguyễn Văn Linh, Q.7, TP.HCM</p>
+        </div>
+        <div class="copyright">
+            © 2023 ĐAN FOODS. Tất cả các quyền được bảo lưu.
+        </div>
+    </footer>
 </body>
 </html>
