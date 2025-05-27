@@ -1,0 +1,350 @@
+/* Product Page */
+.product-page {
+  padding: 30px 0;
+}
+
+.product-category-title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.product-sort {
+  margin-bottom: 20px;
+  padding: 10px 0;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+
+.sort-select {
+  padding: 5px 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.product-list {
+  margin: 30px 0;
+}
+
+.product-item {
+  margin-bottom: 30px;
+  border: 1px solid #eee;
+  border-radius: 5px;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+
+.product-item:hover {
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.product-thumb {
+  position: relative;
+  overflow: hidden;
+}
+
+.product-thumb img {
+  width: 100%;
+  transition: all 0.3s;
+}
+
+.product-item:hover .product-thumb img {
+  transform: scale(1.05);
+}
+
+.product-action {
+  position: absolute;
+  bottom: -50px;
+  left: 0;
+  right: 0;
+  background: rgba(255,255,255,0.9);
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+  transition: all 0.3s;
+}
+
+.product-item:hover .product-action {
+  bottom: 0;
+}
+
+.product-action a {
+  margin: 0 10px;
+  color: #333;
+  font-size: 16px;
+}
+
+.product-info {
+  padding: 15px;
+  text-align: center;
+}
+
+.product-info h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.product-price {
+  color: #e74c3c;
+  font-weight: 600;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.product-rating {
+  color: #f1c40f;
+  font-size: 14px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.pagination ul {
+  display: flex;
+}
+
+.pagination li {
+  margin: 0 5px;
+}
+
+.pagination li a {
+  display: block;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  border: 1px solid #ddd;
+  color: #333;
+  border-radius: 4px;
+}
+
+.pagination li.active a {
+  background: #e74c3c;
+  color: #fff;
+  border-color: #e74c3c;
+}
+
+<header class="header">
+  <div class="header-top">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-3 col-md-4 col-6">
+          <div class="logo">
+            <a href="index.html">
+              <img src="images/logo-anfoods.png" alt="AnFoods - Thực phẩm chất lượng">
+            </a>
+          </div>
+        </div>
+        <div class="col-lg-6 d-none d-lg-block">
+          <form class="search-form">
+            <input type="text" placeholder="Tìm kiếm sản phẩm...">
+            <button type="submit"><i class="fas fa-search"></i></button>
+          </form>
+        </div>
+        <div class="col-lg-3 col-md-8 col-6">
+          <div class="header-right">
+            <div class="account">
+              <a href="#"><i class="far fa-user"></i></a>
+            </div>
+            <div class="wishlist">
+              <a href="#"><i class="far fa-heart"></i></a>
+            </div>
+            <div class="cart">
+              <a href="#"><i class="fas fa-shopping-cart"></i> <span>0</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <nav class="main-menu">
+    <div class="container">
+      <ul>
+        <li><a href="index.html">Trang chủ</a></li>
+        <li class="active"><a href="products.html">Sản phẩm</a></li>
+        <li><a href="about.html">Giới thiệu</a></li>
+        <li><a href="news.html">Tin tức</a></li>
+        <li><a href="contact.html">Liên hệ</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<div class="product-page">
+  <div class="container">
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+      <a href="index.html">Trang chủ</a> / <span>Thịt bò đông lạnh</span>
+    </div>
+    
+    <!-- Dòng 1: Tên sản phẩm -->
+    <h1 class="product-category-title">Thịt bò đông lạnh</h1>
+    
+    <!-- Dòng 2: Sắp xếp -->
+    <div class="product-sort">
+      <div class="row">
+        <div class="col-md-6">
+          <p>Hiển thị 1-10 của 25 sản phẩm</p>
+        </div>
+        <div class="col-md-6 text-right">
+          <select class="sort-select">
+            <option>Sắp xếp theo</option>
+            <option>Giá tăng dần</option>
+            <option>Giá giảm dần</option>
+            <option>Tên A-Z</option>
+            <option>Tên Z-A</option>
+            <option>Mới nhất</option>
+            <option>Cũ nhất</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Dòng 3: Danh sách sản phẩm -->
+    <div class="product-list">
+      <div class="row">
+        <!-- Sản phẩm 1 -->
+        <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+          <div class="product-item">
+            <div class="product-thumb">
+              <a href="product-detail.html">
+                <img src="images/products/thit-bo-dong-lanh-1.jpg" alt="Thịt bò đông lạnh loại 1">
+              </a>
+              <div class="product-action">
+                <a href="#" class="add-to-cart"><i class="fas fa-shopping-cart"></i></a>
+                <a href="#" class="quick-view"><i class="fas fa-eye"></i></a>
+                <a href="#" class="add-to-wishlist"><i class="far fa-heart"></i></a>
+              </div>
+            </div>
+            <div class="product-info">
+              <h3><a href="product-detail.html">Thịt bò đông lạnh loại 1</a></h3>
+              <div class="product-price">250.000đ/kg</div>
+              <div class="product-rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Sản phẩm 2-10 (cấu trúc tương tự) -->
+        <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+          <!-- Sản phẩm 2 -->
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+          <!-- Sản phẩm 3 -->
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+          <!-- Sản phẩm 4 -->
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+          <!-- Sản phẩm 5 -->
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+          <!-- Sản phẩm 6 -->
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+          <!-- Sản phẩm 7 -->
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+          <!-- Sản phẩm 8 -->
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+          <!-- Sản phẩm 9 -->
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+          <!-- Sản phẩm 10 -->
+        </div>
+      </div>
+    </div>
+    
+    <!-- Phân trang -->
+    <div class="pagination">
+      <ul>
+        <li class="active"><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#"><i class="fas fa-angle-right"></i></a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-top">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3 col-md-6">
+          <div class="footer-widget">
+            <h3 class="footer-title">Về AnFoods</h3>
+            <p>AnFoods chuyên cung cấp các loại thực phẩm đông lạnh chất lượng cao, đảm bảo an toàn vệ sinh thực phẩm.</p>
+            <div class="footer-social">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="footer-widget">
+            <h3 class="footer-title">Liên kết nhanh</h3>
+            <ul>
+              <li><a href="index.html">Trang chủ</a></li>
+              <li><a href="products.html">Sản phẩm</a></li>
+              <li><a href="about.html">Giới thiệu</a></li>
+              <li><a href="news.html">Tin tức</a></li>
+              <li><a href="contact.html">Liên hệ</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="footer-widget">
+            <h3 class="footer-title">Danh mục sản phẩm</h3>
+            <ul>
+              <li><a href="#">Thịt bò đông lạnh</a></li>
+              <li><a href="#">Thịt heo đông lạnh</a></li>
+              <li><a href="#">Thịt gà đông lạnh</a></li>
+              <li><a href="#">Hải sản đông lạnh</a></li>
+              <li><a href="#">Rau củ đông lạnh</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="footer-widget">
+            <h3 class="footer-title">Liên hệ</h3>
+            <ul class="footer-contact">
+              <li><i class="fas fa-map-marker-alt"></i> 123 Đường ABC, Quận XYZ, TP.HCM</li>
+              <li><i class="fas fa-phone"></i> 0901 234 567</li>
+              <li><i class="fas fa-envelope"></i> info@anfoods.com</li>
+              <li><i class="fas fa-clock"></i> Mở cửa: 8:00 - 17:00 (T2 - T7)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="copyright">
+            <p>&copy; 2023 AnFoods. All Rights Reserved.</p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="payment-methods">
+            <img src="images/payment-methods.png" alt="Phương thức thanh toán">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
