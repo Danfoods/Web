@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thịt Heo Đông Lạnh - Đan Foods</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* Reset và font chung */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            background-color: #f9f8f5;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        ul {
+            list-style: none;
+        }
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header */
+        .header {
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .header-top {
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-weight: bold;
+            font-size: 24px;
+            color: #2a5f3e;
+        }
+        .logo span {
+            color: #d4a762;
+        }
+        .header-contact {
+            display: flex;
+            align-items: center;
+        }
+        .header-contact i {
+            margin-right: 5px;
+            color: #2a5f3e;
+        }
+        .header-contact span {
+            margin-right: 15px;
+        }
+        
+        /* Main Menu với Dropdown */
+        .main-menu {
+            background: #2a5f3e;
+        }
+        .main-menu > ul {
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+        .main-menu > ul > li {
+            position: relative;
+        }
+        .main-menu > ul > li > a {
+            color: white;
+            display: block;
+            padding: 15px 20px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        .main-menu > ul > li:hover > a,
+        .main-menu > ul > li.active > a {
+            background: #1e4b2d;
+        }
+        
+        /* Dropdown Menu */
+        .sub-menu {
+            position: absolute;
+            left: 0;
+            top: 100%;
+            width: 250px;
+            background: white;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 100;
+        }
+        .main-menu > ul > li:hover .sub-menu {
+            opacity: 1;
+            visibility: visible;
+        }
+        .sub-menu li a {
+            display: block;
+            padding: 10px 15px;
+            color: #333;
+            border-bottom: 1px solid #eee;
+            transition: all 0.3s;
+        }
+        .sub-menu li a:hover {
+            background: #f5f5f5;
+            color: #2a5f3e;
+            padding-left: 20px;
+        }
+        .sub-menu li.active a {
+            color: #2a5f3e;
+            font-weight: bold;
+        }
+        
+        /* Banner */
+        .banner {
+            background: url('images/banner-thit-heo.jpg') center/cover;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+        .banner:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+        }
+        .banner-content {
+            position: relative;
+            z-index: 1;
+        }
+        .banner h1 {
+            font-size: 36px;
+            margin-bottom: 15px;
+            color: white;
+        }
+        
+        /* Product Section */
+        .product-section {
+            padding: 50px 0;
+        }
+        .product-filter {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #ddd;
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+        }
+        .product-item {
+            border: 1px solid #eee;
+            border-radius: 5px;
+            overflow: hidden;
+            transition: all 0.3s;
+            background: white;
+        }
+        .product-item:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transform: translateY(-5px);
+        }
+        .product-image {
+            height: 180px;
+            overflow: hidden;
+        }
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.3s;
+        }
+        .product-item:hover .product-image img {
+            transform: scale(1.05);
+        }
+        .product-info {
+            padding: 15px;
+        }
+        .product-name {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #2a5f3e;
+        }
+        .product-price {
+            color: #d4a762;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+        }
+        .pagination a {
+            display: block;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            margin: 0 5px;
+            border: 1px solid #ddd;
+            color: #333;
+            border-radius: 4px;
+        }
+        .pagination a.active,
+        .pagination a:hover {
+            background: #2a5f3e;
+            color: white;
+            border-color: #2a5f3e;
+        }
+        
+        /* News Section */
+        .news-section {
+            padding: 50px 0;
+            background: #f5f5f5;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #2a5f3e;
+            font-size: 28px;
+        }
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        .news-item {
+            background: white;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        .news-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        .news-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .news-content {
+            padding: 20px;
+        }
+        .news-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #2a5f3e;
+            font-size: 18px;
+        }
+        .news-excerpt {
+            color: #666;
+            margin-bottom: 15px;
+        }
+        .read-more {
+            color: #d4a762;
+            font-weight: bold;
+        }
+        
+        /* Footer */
+        .footer {
+            background: #2a5f3e;
+            color: white;
+            padding: 50px 0 0;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        .footer-title {
+            font-size: 18px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        .footer-title:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 2px;
+            background: #d4a762;
+        }
+        .footer-contact li {
+            margin-bottom: 15px;
+            position: relative;
+            padding-left: 25px;
+        }
+        .footer-contact i {
+            position: absolute;
+            left: 0;
+            top: 5px;
+            color: #d4a762;
+        }
+        .footer-social a {
+            display: inline-block;
+            width: 36px;
+            height: 36px;
+            line-height: 36px;
+            text-align: center;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border-radius: 50%;
+            margin-right: 5px;
+        }
+        .footer-social a:hover {
+            background: #d4a762;
+        }
+        .footer-bottom {
+            background: #1e4b2d;
+            padding: 15px 0;
+            text-align: center;
+        }
+        
+        /* Responsive */
+        @media (max-width: 991px) {
+            .product-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .news-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 767px) {
+            .header-top {
+                flex-direction: column;
+                text-align: center;
+            }
+            .header-contact {
+                margin-top: 15px;
+                justify-content: center;
+            }
+            .main-menu > ul {
+                flex-direction: column;
+            }
+            .sub-menu {
+                position: static;
+                width: 100%;
+                box-shadow: none;
+                opacity: 1;
+                visibility: visible;
+                display: none;
+            }
+            .main-menu > ul > li:hover .sub-menu {
+                display: block;
+            }
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-top container">
+            <div class="logo">ĐAN <span>FOODS</span></div>
+            <div class="header-contact">
+                <span><i class="fas fa-phone"></i> 0908 352 254</span>
+                <span><i class="fas fa-search"></i></span>
+            </div>
+        </div>
+        <nav class="main-menu">
+            <div class="container">
+                <ul>
+                    <li><a href="index.html">TRANG CHỦ</a></li>
+                    <li class="active">
+                        <a href="products.html">SẢN PHẨM <i class="fas fa-caret-down"></i></a>
+                        <ul class="sub-menu">
+                            <li class="active"><a href="thit-heo-dong-lanh.html">Thịt heo đông lạnh</a></li>
+                            <li><a href="thit-bo-dong-lanh.html">Thịt bò đông lạnh</a></li>
+                            <li><a href="thit-trau-dong-lanh.html">Thịt trâu đông lạnh</a></li>
+                            <li><a href="hai-san-dong-lanh.html">Cá - Hải sản đông lạnh</a></li>
+                            <li><a href="an-vat-xien-que.html">Ăn vặt - Xiên que</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="about.html">GIỚI THIỆU</a></li>
+                    <li><a href="news.html">TIN TỨC</a></li>
+                    <li><a href="contact.html">LIÊN HỆ</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Banner -->
+    <section class="banner">
+        <div class="banner-content container">
+            <h1>THỊT HEO ĐÔNG LẠNH</h1>
+            <p>Chuyên cung cấp thịt heo đông lạnh nhập khẩu chất lượng cao</p>
+        </div>
+    </section>
+
+    <!-- Product Section -->
+    <section class="product-section">
+        <div class="container">
+            <div class="product-filter">
+                <h3>Hiển thị 1-10 của 20 sản phẩm</h3>
+                <div class="sort-by">
+                    <select>
+                        <option>Sắp xếp theo</option>
+                        <option>Giá tăng dần</option>
+                        <option>Giá giảm dần</option>
+                        <option>Tên A-Z</option>
+                        <option>Tên Z-A</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="product-grid">
+                <!-- Sản phẩm 1 -->
+                <div class="product-item">
+                    <div class="product-image">
+                        <img src="images/thit-heo-1.jpg" alt="Thịt heo đông lạnh loại 1">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">Thịt heo đông lạnh loại 1</div>
+                        <div class="product-price">150.000đ/kg</div>
+                    </div>
+                </div>
+                
+                <!-- Sản phẩm 2 -->
+                <div class="product-item">
+                    <div class="product-image">
+                        <img src="images/thit-heo-2.jpg" alt="Thịt heo đông lạnh loại 2">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">Thịt heo đông lạnh loại 2</div>
+                        <div class="product-price">130.000đ/kg</div>
+                    </div>
+                </div>
+                
+                <!-- Sản phẩm 3-10 (cấu trúc tương tự) -->
+                <div class="product-item">
+                    <div class="product-image">
+                        <img src="images/thit-heo-3.jpg" alt="Thịt heo ba chỉ đông lạnh">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">Thịt heo ba chỉ đông lạnh</div>
+                        <div class="product-price">170.000đ/kg</div>
+                    </div>
+                </div>
+                
+                <div class="product-item">
+                    <div class="product-image">
+                        <img src="images/thit-heo-4.jpg" alt="Thịt heo nạc đông lạnh">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">Thịt heo nạc đông lạnh</div>
+                        <div class="product-price">160.000đ/kg</div>
+                    </div>
+                </div>
+                
+                <div class="product-item">
+                    <div class="product-image">
+                        <img src="images/thit-heo-5.jpg" alt="Thịt heo xay đông lạnh">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">Thịt heo xay đông lạnh</div>
+                        <div class="product-price">140.000đ/kg</div>
+                    </div>
+                </div>
+                
+                <div class="product-item">
+                    <div class="product-image">
+                        <img src="images/thit-heo-6.jpg" alt="Sườn heo đông lạnh">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">Sườn heo đông lạnh</div>
+                        <div class="product-price">200.000đ/kg</div>
+                    </div>
+                </div>
+                
+                <div class="product-item">
+                    <div class="product-image">
+                        <img src="images/thit-heo-7.jpg" alt="Thịt heo Mỹ đông lạnh">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">Thịt heo Mỹ đông lạnh</div>
+                        <div class="product-price">220.000đ/kg</div>
+                    </div>
+                </div>
+                
+                <div class="product-item">
+                    <div class="product-image">
+                        <img src="images/thit-heo-8.jpg" alt="Thịt heo Canada đông lạnh">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">Thịt heo Canada đông lạnh</div>
+                        <div class="product-price">240.000đ/kg</div>
+                    </div>
+                </div>
+                
+                <div class="product-item">
+                    <div class="product-image">
+                        <img src="images/thit-heo-9.jpg" alt="Thịt heo Đức đông lạnh">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">Thịt heo Đức đông lạnh</div>
+                        <div class="product-price">230.000đ/kg</div>
+                    </div>
+                </div>
+                
+                <div class="product-item">
+                    <div class="product-image">
+                        <img src="images/thit-heo-10.jpg" alt="Thịt heo Tây Ban Nha đông lạnh">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">Thịt heo Tây Ban Nha đông lạnh</div>
+                        <div class="product-price">210.000đ/kg</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pagination">
+                <a href="#" class="active">1</a>
+                <a href="#">2</a>
+                <a href="#"><i class="fas fa-angle-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section class="news-section">
+        <div class="container">
+            <h2 class="section-title">TIN TỨC LIÊN QUAN</h2>
+            
+            <div class="news-grid">
+                <!-- Bài viết 1 -->
+                <div class="news-item">
+                    <div class="news-image">
+                        <img src="images/news-1.jpg" alt="Cách bảo quản thịt heo đông lạnh">
+                    </div>
+                    <div class="news-content">
+                        <h3 class="news-title">Cách bảo quản thịt heo đông lạnh đúng cách</h3>
+                        <p class="news-excerpt">Hướng dẫn chi tiết cách bảo quản thịt heo đông lạnh để giữ nguyên hương vị và chất lượng...</p>
+                        <a href="#" class="read-more">Xem thêm</a>
+                    </div>
+                </div>
+                
+                <!-- Bài viết 2 -->
+                <div class="news-item">
+                    <div class="news-image">
+                        <img src="images/news-2.jpg" alt="Lợi ích của thịt heo đông lạnh">
+                    </div>
+                    <div class="news-content">
+                        <h3 class="news-title">Lợi ích bất ngờ của thịt heo đông lạnh nhập khẩu</h3>
+                        <p class="news-excerpt">Thịt heo đông lạnh nhập khẩu không chỉ tiện lợi mà còn mang lại nhiều lợi ích cho sức khỏe...</p>
+                        <a href="#" class="read-more">Xem thêm</a>
+                    </div>
+                </div>
+                
+                <!-- Bài viết 3 -->
+                <div class="news-item">
+                    <div class="news-image">
+                        <img src="images/news-3.jpg" alt="Công thức nấu ăn">
+                    </div>
+                    <div class="news-content">
+                        <h3 class="news-title">5 công thức chế biến thịt heo đông lạnh ngon khó cưỡng</h3>
+                        <p class="news-excerpt">Khám phá những công thức nấu ăn đơn giản nhưng vô cùng hấp dẫn từ thịt heo đông lạnh...</p>
+                        <a href="#" class="read-more">Xem thêm</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3 class="footer-title">VỀ ĐAN FOODS</h3>
+                    <p>Đan Foods chuyên cung cấp các loại thực phẩm đông lạnh nhập khẩu chất lượng cao với giá cả hợp lý và dịch vụ tận tâm.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3 class="footer-title">LIÊN HỆ</h3>
+                    <ul class="footer-contact">
+                        <li><i class="fas fa-map-marker-alt"></i> 4/5A Liên Khu 5-6, P. Bình Hưng Hoà B, Q. Bình Tân, TP. HCM</li>
+                        <li><i class="fas fa-phone"></i> 0908 352 254 – 0906 628 259</li>
+                        <li><i class="fas fa-envelope"></i> sales@danfoods.com</li>
+                        <li><i class="fas fa-globe"></i> danfoods.com</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3 class="footer-title">GIỜ LÀM VIỆC</h3>
+                    <ul class="footer-contact">
+                        <li><i class="fas fa-clock"></i> Thứ 2 - Thứ 7: 8:00 - 18:00</li>
+                        <li><i class="fas fa-clock"></i> Chủ nhật: 8:00 - 12:00</li>
+                        <li><i class="fas fa-shopping-cart"></i> Nhận đơn hàng online 24/7</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3 class="footer-title">DANH MỤC</h3>
+                    <ul>
+                        <li><a href="thit-heo-dong-lanh.html">Thịt heo đông lạnh</a></li>
+                        <li><a href="thit-bo-dong-lanh.html">Thịt bò đông lạnh</a></li>
+                        <li><a href="thit-trau-dong-lanh.html">Thịt trâu đông lạnh</a></li>
+                        <li><a href="hai-san-dong-lanh.html">Hải sản đông lạnh</a></li>
+                        <li><a href="an-vat-xien-que.html">Ăn vặt - Xiên que</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2023 ĐAN FOODS. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
