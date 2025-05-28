@@ -1,1 +1,564 @@
-
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sản phẩm - Đan Foods - Kho thực phẩm đông lạnh nhập khẩu</title>
+    <style>
+        /* Reset CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        /* Biến màu sắc */
+        :root {
+            --primary-color: #194d0b; /* Xanh lá đậm */
+            --secondary-color: #f9fad2; /* Màu be */
+            --accent-color: #d32f2f; /* Đỏ nhấn */
+            --text-color: #333;
+            --light-text: #555;
+            --white: #fff;
+            --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+        
+        .logo {
+            color: var(--primary-color);
+            font-size: 28px;
+            font-weight: bold;
+        }
+        
+        .logo span {
+            color: var(--accent-color);
+        }
+        
+        .hotline {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        
+        .hotline i {
+            color: var(--accent-color);
+            font-size: 20px;
+        }
+        
+        .search-bar {
+            display: flex;
+            width: 300px;
+        }
+        
+        .search-bar input {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px 0 0 4px;
+            outline: none;
+        }
+        
+        .search-bar button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0 15px;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+        }
+        
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: center;
+            padding: 15px 0;
+            background-color: var(--primary-color);
+            position: relative;
+        }
+        
+        nav a {
+            margin: 0 20px;
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 1px;
+            position: relative;
+        }
+        
+        nav a:hover {
+            opacity: 0.9;
+        }
+        
+        nav a.active {
+            font-weight: 600;
+            text-decoration: underline;
+        }
+        
+        /* Dropdown Menu */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: var(--white);
+            min-width: 200px;
+            box-shadow: var(--shadow);
+            z-index: 1;
+            top: 100%;
+            left: 0;
+        }
+        
+        .dropdown-content a {
+            color: var(--text-color);
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-transform: none;
+            font-size: 14px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .dropdown-content a:hover {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        /* Main Content */
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 5% 40px;
+        }
+        
+        /* Banner */
+        .main-banner {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            box-shadow: var(--shadow);
+        }
+        
+        /* Product Section */
+        .product-section {
+            margin-bottom: 50px;
+        }
+        
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--primary-color);
+        }
+        
+        .section-title {
+            color: var(--primary-color);
+            font-size: 24px;
+            font-weight: 600;
+        }
+        
+        .view-all {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .view-all:hover {
+            text-decoration: underline;
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+        }
+        
+        .product-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+            text-align: center;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .product-img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+        }
+        
+        .product-name {
+            padding: 15px 10px;
+            color: var(--text-color);
+            font-weight: 500;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 30px 5% 20px;
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 25px;
+        }
+        
+        .footer-links a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .footer-links a:hover {
+            color: var(--white);
+            text-decoration: underline;
+        }
+        
+        .contact-info-footer {
+            margin-bottom: 20px;
+        }
+        
+        .contact-info-footer p {
+            margin-bottom: 8px;
+        }
+        
+        .copyright {
+            padding-top: 20px;
+            border-top: 1px solid rgba(249, 250, 210, 0.3);
+            color: var(--secondary-color);
+            font-size: 14px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .product-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .top-bar {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .logo-container {
+                width: 100%;
+                justify-content: space-between;
+            }
+            
+            .search-bar {
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            nav {
+                flex-wrap: wrap;
+                padding: 10px 0;
+            }
+            
+            nav a {
+                margin: 0 10px;
+                font-size: 13px;
+            }
+            
+            .logo-container {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            
+            .main-banner {
+                height: 200px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .section-title {
+                font-size: 20px;
+            }
+        }
+    </style>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="top-bar">
+            <div class="logo-container">
+                <div class="logo">ĐAN <span>FOODS</span></div>
+                <div class="hotline">
+                    <i class="fas fa-phone-alt"></i>
+                    <span>0908 352 254</span>
+                </div>
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Tìm kiếm sản phẩm...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+        <nav>
+            <a href="index.html">Trang chủ</a>
+            <div class="dropdown">
+                <a href="products.html" class="active">Sản phẩm <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="pork.html">Thịt heo đông lạnh</a>
+                    <a href="chicken.html">Thịt gà đông lạnh</a>
+                    <a href="beef.html">Thịt bò đông lạnh</a>
+                    <a href="seafood.html">Cá - Hải sản đông lạnh</a>
+                    <a href="snack.html">Ăn vặt - Xiên que</a>
+                </div>
+            </div>
+            <a href="gioi-thieu.html">Giới thiệu</a>
+            <a href="news.html">Tin tức</a>
+            <a href="lien-he.html">Liên hệ</a>
+        </nav>
+    </header>
+    
+    <!-- Main Content -->
+    <main class="main-container">
+        <!-- Banner chính -->
+        <img src="https://images.unsplash.com/photo-1606787366850-de6330128bfc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Banner sản phẩm" class="main-banner">
+        
+        <!-- Thịt heo đông lạnh -->
+        <section class="product-section">
+            <div class="section-header">
+                <h2 class="section-title">THỊT HEO ĐÔNG LẠNH</h2>
+                <a href="pork.html" class="view-all">
+                    Xem thêm <i class="fas fa-chevron-right"></i>
+                </a>
+            </div>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1551028150-64b9f398f678?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Thịt heo 1" class="product-img">
+                    <div class="product-name">Thịt heo ba chỉ</div>
+                </div>
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1601342630314-8427c38bf5e6?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Thịt heo 2" class="product-img">
+                    <div class="product-name">Sườn heo non</div>
+                </div>
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Thịt heo 3" class="product-img">
+                    <div class="product-name">Thịt heo vai</div>
+                </div>
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1603105037880-880cd4edfb0d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Thịt heo 4" class="product-img">
+                    <div class="product-name">Thịt heo thăn</div>
+                </div>
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Thịt heo 5" class="product-img">
+                    <div class="product-name">Chân giò heo</div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Thịt gà đông lạnh -->
+        <section class="product-section">
+            <div class="section-header">
+                <h2 class="section-title">THỊT GÀ ĐÔNG LẠNH</h2>
+                <a href="chicken.html" class="view-all">
+                    Xem thêm <i class="fas fa-chevron-right"></i>
+                </a>
+            </div>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1601342630314-8427c38bf5e6?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Thịt gà 1" class="product-img">
+                    <div class="product-name">Ức gà không xương</div>
+                </div>
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1551028150-64b9f398f678?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Thịt gà 2" class="product-img">
+                    <div class="product-name">Đùi gà nguyên con</div>
+                </div>
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Thịt gà 3" class="product-img">
+                    <div class="product-name">Cánh gà ta</div>
+                </div>
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1603105037880-880cd4edfb0d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Thịt gà 4" class="product-img">
+                    <div class="product-name">Gà nguyên con</div>
+                </div>
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Thịt gà 5" class="product-img">
+                    <div class="product-name">Lườn gà phi lê</div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Thịt bò - trâu đông lạnh -->
+        <section class="product-section">
+            <div class="section-header">
+                <h2 class="section-title">THỊT BÒ - TRÂU ĐÔNG LẠNH</h2>
+                <a href="beef.html" class="view-all">
+                    Xem thêm <i class="fas fa-chevron-right"></i>
+                </a>
+            </div>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1603105037880-880cd4edfb0d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Thịt bò 1" class="product-img">
+                    <div class="product-name">Thăn bò Mỹ</div>
+                </div>
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1551028150-64b9f398f678?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Thịt bò 2" class="product-img">
+                    <div class="product-name">Bò ấn đông lạnh</div>
+                </div>
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Thịt bò 3" class="product-img">
+                    <div class="product-name">Sườn bò non</div>
+                </div>
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1601342630314-8427c38bf5e6?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Thịt bò 4" class="product-img">
+                    <div class="product-name">Bắp bò Úc</div>
+                </div>
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Thịt bò 5" class="product-img">
+                    <div class="product-name">Ba chỉ bò Mỹ</div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Thủy hải sản -->
+        <section class="product-section">
+            <div class="section-header">
+                <h2 class="section-title">THỦY HẢI SẢN</h2>
+                <a href="seafood.html" class="view-all">
+                    Xem thêm <i class="fas fa-chevron-right"></i>
+                </a>
+            </div>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Hải sản 1" class="product-img">
+                    <div class="product-name">Cá hồi phi lê</div>
+                </div>
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1551028150-64b9f398f678?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Hải sản 2" class="product-img">
+                    <div class="product-name">Tôm sú size lớn</div>
+                </div>
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1601342630314-8427c38bf5e6?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Hải sản 3" class="product-img">
+                    <div class="product-name">Mực ống đông lạnh</div>
+                </div>
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1603105037880-880cd4edfb0d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Hải sản 4" class="product-img">
+                    <div class="product-name">Cá basa phi lê</div>
+                </div>
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Hải sản 5" class="product-img">
+                    <div class="product-name">Nghêu đông lạnh</div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Ăn vặt - Xiên que -->
+        <section class="product-section">
+            <div class="section-header">
+                <h2 class="section-title">ĂN VẶT - XIÊN QUE</h2>
+                <a href="snack.html" class="view-all">
+                    Xem thêm <i class="fas fa-chevron-right"></i>
+                </a>
+            </div>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Ăn vặt 1" class="product-img">
+                    <div class="product-name">Xiên que thập cẩm</div>
+                </div>
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1551028150-64b9f398f678?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Ăn vặt 2" class="product-img">
+                    <div class="product-name">Chả giò đông lạnh</div>
+                </div>
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1601342630314-8427c38bf5e6?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Ăn vặt 3" class="product-img">
+                    <div class="product-name">Xúc xích heo</div>
+                </div>
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Ăn vặt 4" class="product-img">
+                    <div class="product-name">Nem chua rán</div>
+                </div>
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1603105037880-880cd4edfb0d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Ăn vặt 5" class="product-img">
+                    <div class="product-name">Lạp xưởng tươi</div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-links">
+            <a href="index.html">Trang chủ</a>
+            <a href="san-pham.html">Sản phẩm</a>
+            <a href="gioi-thieu.html">Giới thiệu</a>
+            <a href="news.html">Tin tức</a>
+            <a href="lien-he.html">Liên hệ</a>
+        </div>
+        <div class="contact-info-footer">
+            <p><i class="fas fa-phone-alt"></i> 0908 352 254 | <i class="fas fa-envelope"></i> info@danfoods.vn</p>
+            <p><i class="fas fa-map-marker-alt"></i> 123 Nguyễn Văn Linh, Q.7, TP.HCM</p>
+        </div>
+        <div class="copyright">
+            © 2023 ĐAN FOODS. Tất cả các quyền được bảo lưu.
+        </div>
+    </footer>
+</body>
+</html>
