@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <title>Thịt Heo Đông Lạnh - Đan Foods</title>
     <style>
         /* Reset CSS */
@@ -581,22 +582,136 @@
     </main>
     
     <!-- Footer -->
-    <footer>
-        <div class="footer-links">
-            <a href="index.html">Trang chủ</a>
-            <a href="products.html">Sản phẩm</a>
-            <a href="about.html">Giới thiệu</a>
-            <a href="news.html">Tin tức</a>
-            <a href="contact.html">Liên hệ</a>
+<footer>
+    <div class="footer-container">
+        <div class="footer-section">
+            <h3>VỀ DAN FOODS</h3>
+            <p>Dan Foods chuyên cung cấp các loại thực phẩm đông lạnh nhập khẩu chất lượng cao với giá cả hợp lý và dịch vụ tận tâm.</p>
         </div>
-        <div class="contact-info-footer">
-            <p><i class="fas fa-phone-alt"></i> 0908 352 254 | <i class="fas fa-envelope"></i> info@danfoods.vn</p>
-            <p><i class="fas fa-map-marker-alt"></i> 123 Nguyễn Văn Linh, Q.7, TP.HCM</p>
+        
+        <div class="footer-section">
+            <h3>LIÊN HỆ</h3>
+            <ul class="contact-info">
+                <li><i class="fas fa-map-marker-alt"></i> 4/5A Liên Khu S-6, P. Bình Hưng Hoà B, Q. Bình Tân, TP. HCM</li>
+                <li><i class="fas fa-phone-alt"></i> 0908 352 254 – 0906 628 259</li>
+                <li><i class="fas fa-envelope"></i> sales@danfoods.com</li>
+                <li><i class="fas fa-globe"></i> danfoods.com</li>
+            </ul>
         </div>
-        <div class="copyright">
-            © 2023 ĐAN FOODS. Tất cả các quyền được bảo lưu.
+        
+        <div class="footer-section">
+            <h3>GIỜ LÀM VIỆC</h3>
+            <ul class="working-hours">
+                <li>Thứ 2 - Thứ 7: 8:00 - 18:00</li>
+                <li>Chủ nhật: 8:00 - 12:00</li>
+                <li>Nhận đơn hàng online 24/7</li>
+            </ul>
         </div>
-    </footer>
+        
+        <div class="footer-section">
+            <h3>DANH MỤC</h3>
+            <ul class="categories">
+                <li><a href="#">Thịt heo đông lạnh</a></li>
+                <li><a href="#">Thịt bò đông lạnh</a></li>
+                <li><a href="#">Thịt trâu đông lạnh</a></li>
+                <li><a href="#">Hải sản đồng lạnh</a></li>
+                <li><a href="#">Ăn vặt - Xiên que</a></li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="copyright">
+        © 2025 DAN FOODS. All Rights Reserved.
+    </div>
+</footer>
+
+<style>
+    /* Footer Styles */
+    footer {
+        background-color: var(--primary-color);
+        color: var(--secondary-color);
+        padding: 40px 5% 20px;
+        font-size: 14px;
+    }
+    
+    .footer-container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 30px;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding-bottom: 30px;
+        border-bottom: 1px solid rgba(249, 250, 210, 0.3);
+    }
+    
+    .footer-section h3 {
+        color: var(--secondary-color);
+        font-size: 18px;
+        margin-bottom: 20px;
+        position: relative;
+        padding-bottom: 10px;
+    }
+    
+    .footer-section h3:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 40px;
+        height: 2px;
+        background-color: var(--accent-color);
+    }
+    
+    .footer-section p,
+    .footer-section li {
+        color: var(--secondary-color);
+        margin-bottom: 10px;
+        line-height: 1.6;
+    }
+    
+    .footer-section a {
+        color: var(--secondary-color);
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+    
+    .footer-section a:hover {
+        color: var(--accent-color);
+        text-decoration: underline;
+    }
+    
+    .contact-info i,
+    .working-hours i {
+        margin-right: 8px;
+        width: 20px;
+        text-align: center;
+        color: var(--accent-color);
+    }
+    
+    .copyright {
+        text-align: center;
+        padding-top: 20px;
+        color: var(--secondary-color);
+        font-size: 13px;
+    }
+    
+    /* Responsive */
+    @media (max-width: 992px) {
+        .footer-container {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+    
+    @media (max-width: 576px) {
+        .footer-container {
+            grid-template-columns: 1fr;
+        }
+        
+        .footer-section {
+            margin-bottom: 25px;
+        }
+    }
+</style>
 
     <script>
         // Simple pagination functionality
